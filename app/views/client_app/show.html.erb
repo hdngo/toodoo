@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Too Doos</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+  <script type="text/x-template" data-template="task">
+    <div class="task">
+      <span class="task-description">${description}</span>
+      <a href="" class="task-remove-link">X</a>
+    </div>
+  </script>
+  <script type="text/x-template" data-template="new-task-form">
+    <form class="new-task-form" action="/tasks" method="post">
+      <input type="text" name="task[description]" placeholder="new task" />
+      <input type="submit" value="create" />
+    </form>
+  </script>
+
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+</body>
+</html>

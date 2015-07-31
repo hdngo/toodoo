@@ -1,0 +1,28 @@
+<% @tasks.each do |task| %>
+	<div>
+	<p>Comment <%= task.id %></p>
+	<p><%= task.description %></p>
+	<p>Status: <%= task.completed %></p>
+	<%= link_to "Edit task #{task.id}", edit_task_path(task) %>
+	<% if task.completed %>
+	<%= link_to "UnComplete task #{task.id}", task_complete_path(task) %>
+	<% else %>
+	<%= link_to "Complete task #{task.id}", task_complete_path(task) %>
+	<% end %>
+	<%= link_to "Destroy", task_path(task), method: :delete  %>
+
+	<p>-------------------------</p>
+	</div>
+<% end %>
+
+<h2>Add a task</h2>
+<%= form_for :task, url: tasks_path do |f| %>
+	<p>
+		<%= f.label :description %>
+		<%= f.text_field :description %>
+	</p>
+	<p>
+		<%= f.submit %>
+	</p>
+
+<% end %>
